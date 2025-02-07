@@ -1,5 +1,7 @@
 package com.Arjun.spring_aop.aop.business;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,7 @@ public class BusinessService1 {
 	public int calculateMax() {
 		int data[] = dataService1.retrieveData();
 		
-		throw new RuntimeException("Something went wrong!!");
-		//return Arrays.stream(data).max().orElse(0);
+		//throw new RuntimeException("Something went wrong!!");
+		return Arrays.stream(data).max().orElse(0);
 	}
 }

@@ -2,6 +2,7 @@ package com.Arjun.spring_aop.aop.aspects;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -52,6 +53,15 @@ public class LoggingAspect {
 	public void logMethodCallAfterException(JoinPoint joinPoint, Exception exception) {
 	
 		logger.info("After throwing aspect - {} has thrown an exception {}", joinPoint, exception);
+			
+	}
+	
+	@AfterReturning(
+			pointcut = "execution(* com.Arjun.spring_aop.aop.business.*.*(..))",
+			returning = "resultValue")
+	public void logMethodCallAfterSuccessfulException(JoinPoint joinPoint, Object resultValue) {
+	
+		logger.info("After returning aspect - {} ", joinPoint);
 			
 	}
 }
