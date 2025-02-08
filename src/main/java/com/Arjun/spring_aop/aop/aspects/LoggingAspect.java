@@ -25,7 +25,7 @@ public class LoggingAspect {
 	//@Pointcut("execution(* com.Arjun.spring_aop.aop.business.*.*(..))")
 	
 	//Will be called before method call
-	@Before("execution(* com.Arjun.spring_aop.aop.business.*.*(..))")
+	@Before("com.Arjun.spring_aop.aop.aspects.CommonPointcutConfig.businessAndDataPackageConfig()")
 	public void logMethodCallBeforeExecution(JoinPoint joinPoint) {
 		
 		//JointPoint specifies the method called where the aspect is being used
@@ -42,7 +42,7 @@ public class LoggingAspect {
 	}
 	
 	//will be executed after method call
-	@After("execution(* com.Arjun.spring_aop.aop.business.*.*(..))")
+	@After("com.Arjun.spring_aop.aop.aspects.CommonPointcutConfig.businessPackageConfig()")
 	public void logMethodCallAfterExecution(JoinPoint joinPoint) {
 	
 		logger.info("After aspect - Method is called - {}", joinPoint);
