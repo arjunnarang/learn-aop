@@ -29,6 +29,8 @@ public class LoggingAspect {
 	public void logMethodCallBeforeExecution(JoinPoint joinPoint) {
 		
 		//JointPoint specifies the method called where the aspect is being used
+		//JoinPoint is an AspectJ interface that provides reflective access to the state available at a given join point, like method parameters, return value, or thrown exception. 
+		//It also provides all static information about the method itself.
 		
 		
 		logger.info("Before aspect - Method is called - {}", joinPoint);

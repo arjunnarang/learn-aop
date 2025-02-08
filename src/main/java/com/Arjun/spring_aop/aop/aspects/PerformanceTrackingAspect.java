@@ -16,6 +16,10 @@ public class PerformanceTrackingAspect {
 	
 	@Around("execution(* com.Arjun.spring_aop.aop.*.*.*(..))")
 	public Object findExecutionTime(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+		//ProceedJoinPoint - It is an extension to JoinPoint that provides additional proceed() method
+		//When it is invoked, it lets code execution to jump to the targeted method or the next advice
+		
+		
 		//1. Start a timer
 		long startTimeMillis = System.currentTimeMillis();
 		
@@ -29,7 +33,7 @@ public class PerformanceTrackingAspect {
 		//4. Finding duration to execute the time
 		long executionDuration = stopTimeMillis - startTimeMillis;
 		
-		
+		//First curly braces is for 1st parameter and 2nd is for 2nd parameter
 		logger.info("Around aspect - {} Method executed in {} ms", proceedingJoinPoint, executionDuration);
 		
 		return returnValue;
