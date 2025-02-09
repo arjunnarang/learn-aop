@@ -14,7 +14,8 @@ public class PerformanceTrackingAspect {
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	
-	@Around("execution(* com.Arjun.spring_aop.aop.*.*.*(..))")
+	//@Around("execution(* com.Arjun.spring_aop.aop.*.*.*(..))")
+	@Around("com.Arjun.spring_aop.aop.aspects.CommonPointcutConfig.trackTimeAnnotation()")
 	public Object findExecutionTime(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 		//ProceedJoinPoint - It is an extension to JoinPoint that provides additional proceed() method
 		//When it is invoked, it lets code execution to jump to the targeted method or the next advice

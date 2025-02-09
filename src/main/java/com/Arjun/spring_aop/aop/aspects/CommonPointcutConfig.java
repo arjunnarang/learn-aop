@@ -25,5 +25,8 @@ public class CommonPointcutConfig {
 	//This means apply aspect where @Service is mentioned.
 	@Pointcut("bean(*Service*)")
 	public void allPackageConfigUsingBean() {}
+	
+	@Pointcut("@annotation(com.Arjun.spring_aop.aop.annotations.TrackTime)")
+	public void trackTimeAnnotation() {}
 
 }
